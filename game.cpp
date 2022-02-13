@@ -12,7 +12,8 @@ Game::Game():
 	road1(0.f, 0.f),
 	road2(0.f, -WINDOW_HEIGHT),
 	barrier1(0.f, -barrier1.getHitBox().height),
-	barrier2(200.f, -WINDOW_HEIGHT / 2)
+	barrier2(200.f, -WINDOW_HEIGHT / 2),
+	score_text("ds-digib.ttf", 64, 30, -10, sf::Color::Red)
 {
 	window.setVerticalSyncEnabled(true);
 }
@@ -46,6 +47,8 @@ void Game::update() {
 		car.update();
 		barrier1.update();
 		barrier2.update();
+		score_text.update(std::to_string(barrier1.getScore() + 
+			barrier2.getScore()));
 		break;
 	case GAME_OVER:
 		break;
@@ -65,6 +68,7 @@ void Game::draw() {
 		window.draw(barrier1.getSprite());
 		window.draw(barrier2.getSprite());
 		window.draw(car.getSprite());
+		window.draw(score_text.getText());
 		break;
 	case GAME_OVER:
 		window.clear(sf::Color(150, 150, 150));

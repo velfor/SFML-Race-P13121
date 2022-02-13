@@ -4,6 +4,7 @@
 #include "splash.h"
 #include "car.h"
 #include "barrier.h"
+#include "text.h"
 
 class Game {
 public:
@@ -14,6 +15,7 @@ public:
 	void update();
 	void draw();
 	void check_collisions();
+	
 private:
 	sf::RenderWindow window;
 	GameState game_state{ SPLASH };
@@ -21,5 +23,6 @@ private:
 	SplashScreen splash_screen, game_over_screen;
 	Car car;
 	Barrier barrier1, barrier2;
-
+	TextObject score_text;
+	
 };
