@@ -7,12 +7,12 @@ private:
 	sf::Texture texture;
 	sf::Sprite sprite;
 public:
-	Barrier() {
+	Barrier(float x, float y) {
 		texture.loadFromFile(BARRIER_FILE_NAME);
 		sprite.setTexture(texture);
 		sprite.setScale(0.35f, 0.35f);
+		sprite.setPosition(x, y);
 	}
-	void init(float x, float y) { sprite.setPosition(x, y); }
 	sf::Sprite getSprite() { return sprite; }
 	sf::FloatRect getHitBox() { return sprite.getGlobalBounds(); }
 	void update() {

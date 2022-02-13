@@ -1,19 +1,20 @@
 #include "game.h"
 #include "const.h"
 
-Game::Game() {
-	window.create(sf::VideoMode(
-		static_cast<size_t>(WINDOW_WIDTH),
-		static_cast<size_t>(WINDOW_HEIGHT)
-		), WINDOW_TITLE);
+Game::Game():
+	window	(	sf::VideoMode(
+				static_cast<size_t>(WINDOW_WIDTH), 
+				static_cast<size_t>(WINDOW_HEIGHT)),
+				WINDOW_TITLE
+			),
+	splash_screen(SPLASH_FILE_NAME, 1.2f, 1.43f),
+	game_over_screen(GAME_OVER_FILE_NAME, 1.351f, 2.135f),
+	road1(0.f, 0.f),
+	road2(0.f, -WINDOW_HEIGHT),
+	barrier1(0.f, -barrier1.getHitBox().height),
+	barrier2(200.f, -WINDOW_HEIGHT / 2)
+{
 	window.setVerticalSyncEnabled(true);
-	splash_screen.init(1.2f, 1.43f);
-	game_over_screen.init(1.351f, 2.135f);
-	road1.init(0.f, 0.f);
-	road2.init(0.f, -WINDOW_HEIGHT);
-
-	barrier1.init(0.f, -barrier1.getHitBox().height);
-	barrier2.init(200.f, -WINDOW_HEIGHT/2);
 }
 void Game::play() {
 	while (window.isOpen()) {

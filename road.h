@@ -8,12 +8,13 @@ private:
 	sf::Sprite sprite;
 	sf::Vector2f speed{ sf::Vector2f(ROAD_SPEED_X, ROAD_SPEED_Y) };
 public:
-	Road() {
+	Road(float x, float y) {
 		texture.loadFromFile(ROAD_FILE_NAME);
 		sprite.setTexture(texture);
 		sprite.setScale(ROAD_SCALE_X, ROAD_SCALE_Y);
+		sprite.setPosition(x, y);
 	}
-	void init(float x, float y) { sprite.setPosition(x, y); }
+	
 	sf::Sprite getSprite() { return sprite; }
 	void update() {
 		sprite.move(speed);
