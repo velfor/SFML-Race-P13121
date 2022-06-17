@@ -16,6 +16,18 @@ Game::Game():
 	score_text("ds-digib.ttf", 64, 30, -10, sf::Color::Red)
 {
 	window.setVerticalSyncEnabled(true);
+	
+}
+void Game::init() {
+	//машинку на начальную позицию
+	car.init();
+	//дороги на начальную позицию
+	road1.init(0.f, 0.f);
+	road2.init(0.f, -WINDOW_HEIGHT);
+	//барьеры на начальную позицию
+	barrier1.init(0.f, -barrier1.getHitBox().height);
+	barrier2.init(200.f, -WINDOW_HEIGHT / 2);
+	//обнулить счет - обнуляем в барьерах
 }
 void Game::play() {
 	while (window.isOpen()) {
@@ -33,7 +45,12 @@ void Game::checkEvents() {
 			if (game_state == SPLASH && event.key.code == sf::Keyboard::Space) {
 				game_state = PLAY;
 			}
+			if (game_state == GAME_OVER && event.key.code == sf::Keyboard::Y) {
+				init();
+				game_state = PLAY;
+			}
 		}
+		 
 	}
 }
 void Game::update() {

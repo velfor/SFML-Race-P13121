@@ -13,6 +13,9 @@ public:
 		texture.loadFromFile(BARRIER_FILE_NAME);
 		sprite.setTexture(texture);
 		sprite.setScale(0.35f, 0.35f);
+		init(x, y);
+	}
+	void init(float x, float y) {
 		sprite.setPosition(x, y);
 		score = 0;
 	}

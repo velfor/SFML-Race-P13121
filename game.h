@@ -10,6 +10,7 @@ class Game {
 public:
 	enum GameState { SPLASH, PLAY, GAME_OVER };
 	Game();
+	void init();
 	void play();
 	void checkEvents();
 	void update();
@@ -24,5 +25,4 @@ private:
 	Car car;
 	Barrier barrier1, barrier2;
 	TextObject score_text;
-	
 };

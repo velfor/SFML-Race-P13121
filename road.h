@@ -12,6 +12,9 @@ public:
 		texture.loadFromFile(ROAD_FILE_NAME);
 		sprite.setTexture(texture);
 		sprite.setScale(ROAD_SCALE_X, ROAD_SCALE_Y);
+		init(x, y);
+	}
+	void init(float x, float y) {
 		sprite.setPosition(x, y);
 	}
 	

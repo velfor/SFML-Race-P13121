@@ -11,8 +11,11 @@ public:
 		texture.loadFromFile(CAR_FILE_NAME);
 		sprite.setTexture(texture);
 		sprite.setScale(0.1f, 0.1f);
-		sprite.setPosition(WINDOW_WIDTH/2 - sprite.getGlobalBounds().width/2,
-			WINDOW_HEIGHT - sprite.getGlobalBounds().height - 10 );
+		init();
+	}
+	void init() {
+		sprite.setPosition(WINDOW_WIDTH / 2 - sprite.getGlobalBounds().width / 2,
+			WINDOW_HEIGHT - sprite.getGlobalBounds().height - 10);
 	}
 	sf::Sprite getSprite() { return sprite; }
 	sf::FloatRect getHitBox() { return sprite.getGlobalBounds(); }
